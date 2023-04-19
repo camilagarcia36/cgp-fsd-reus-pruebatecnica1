@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS `messages`;
-DROP TABLE IF EXISTS `parties`;
 DROP TABLE IF EXISTS `games`;
+DROP TABLE IF EXISTS `parties`;
 DROP TABLE IF EXISTS `users`;
 
 

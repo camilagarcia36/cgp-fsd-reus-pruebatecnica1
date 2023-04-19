@@ -41,6 +41,9 @@ public class Message {
 	    @JoinColumn(name="user_id")
 	    private User user; 
 	   
+	    @ManyToOne
+	    @JoinColumn(name="party_id")
+	    private Party party; 
 
 	    public Message() {}
 		public Message(Long id_message, String content, Date date) {
