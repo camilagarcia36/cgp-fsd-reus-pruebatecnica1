@@ -86,12 +86,40 @@ public class Party {
 	}
 
 	/**
+	 * @param user the user to set
+	 */
+	public void setUser(List<User> user) {
+		this.user = user;
+	}
+
+	/**
 	 * @return the video
 	 */
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Game")
 	public List<Game> getGame() {
 		return game;
+	}
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "User")
+	public List<User> getUser() {
+		return user;
+	}
+
+	/**
+	 * @return the message
+	 */
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Message")
+	public List<Message> getMessage() {
+		return message;
+	}
+
+	/**
+	 * @param message the message to set
+	 */
+	public void setMessage(List<Message> message) {
+		this.message = message;
 	}
 
 	// Metodo impresion de datos por consola

@@ -1,8 +1,11 @@
 DROP TABLE IF EXISTS `messages`;
 DROP TABLE IF EXISTS `games`;
-
 DROP TABLE IF EXISTS `users`;
 DROP TABLE IF EXISTS `parties`;
+
+
+
+
 
 
 CREATE TABLE `users` (
@@ -12,6 +15,7 @@ CREATE TABLE `users` (
   `email` varchar(50) DEFAULT NULL,
   `steam_user` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
+   
 );
 
 CREATE TABLE `parties` (
