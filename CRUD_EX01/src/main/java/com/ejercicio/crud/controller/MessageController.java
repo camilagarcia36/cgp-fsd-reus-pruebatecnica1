@@ -23,27 +23,27 @@ import com.ejercicio.crud.service.MessageServiceImpl;
 public class MessageController {
 
 	@Autowired
-	MessageServiceImpl MessageServideImpl;
+	MessageServiceImpl MessageServiceImpl;
 	
 	@GetMapping("/Messages")
 	public List<Message> listarMessages(){
-		return MessageServideImpl.listarMessage();
+		return MessageServiceImpl.listarMessage();
 	}
 	
 	//Añadir Message desde json
 		@PostMapping("/Messages")
 		public Message salvarMessage(@RequestBody Message Message) {
 			
-			return MessageServideImpl.guardarMessage(Message);
+			return MessageServiceImpl.guardarMessage(Message);
 		}
 		
 		//Get Messages por id 
-		@GetMapping("/Messages/{id}")
+		@GetMapping("/Messages/{id_Message}")
 		public Message MessageXID(@PathVariable(name="id_Message") Long id_Message) {
 			
 			Message Message_xid= new Message();
 			
-			Message_xid=MessageServideImpl.messageXID(id_Message);
+			Message_xid=MessageServiceImpl.messageXID(id_Message);
 			
 			System.out.println("Message XID: "+Message_xid);
 			
@@ -51,28 +51,28 @@ public class MessageController {
 		}
 		
 		//Añadir Message por id 
-		@PutMapping("/Messages/{id}")
+		@PutMapping("/Messages/{id_Message}")
 		public Message actualizarMessage(@PathVariable(name="id_Message")Long id_Message,@RequestBody Message Message) {
 			
 			Message Message_seleccionado= new Message();
 			Message Message_actualizado= new Message();
 			
-			Message_seleccionado= MessageServideImpl.messageXID(id_Message);
+			Message_seleccionado= MessageServiceImpl.messageXID(id_Message);
 			
 			Message_seleccionado.setContent(Message.getContent());
 
 			Message_seleccionado.setDate(Message.getDate()); 
 			
-			Message_actualizado = MessageServideImpl.actualizarMessage(Message_seleccionado);
+			Message_actualizado = MessageServiceImpl.actualizarMessage(Message_seleccionado);
 			
 			System.out.println("El Message actualizado es: "+ Message_actualizado);
 			
 			return Message_actualizado;
 		}
 		
-		@DeleteMapping("/Messages/{id}")
+		@DeleteMapping("/Messages/{id_Message}")
 		public void eleiminarMessage(@PathVariable(name="id_Message")Long id_message) {
-			MessageServideImpl.eliminarMessage(id_message);
+			MessageServiceImpl.eliminarMessage(id_message);
 		}
 	
 }

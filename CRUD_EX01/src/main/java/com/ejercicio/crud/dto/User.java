@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -39,6 +40,9 @@ public class User  {
     @JoinColumn(name="id_user")
     private List<Message> message;
 	
+    @ManyToOne
+    @JoinColumn(name="party_id")
+    private Party party; 
 	
     
     //Constructores

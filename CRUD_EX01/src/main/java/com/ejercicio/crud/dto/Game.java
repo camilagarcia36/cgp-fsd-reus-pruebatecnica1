@@ -32,10 +32,11 @@ public class Game {
 		
 		
 	    @ManyToOne
-	    @JoinColumn(name="party_idd")
+	    @JoinColumn(name="party_id")
 	    private Party party;
 
 
+	    public Game() {}
 		public Game(Long id_game, String gameTitle, String description) {
 			super();
 			this.id_game = id_game;

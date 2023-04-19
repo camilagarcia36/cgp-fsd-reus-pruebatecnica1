@@ -42,7 +42,7 @@ public class UserController {
 	}
 	
 	//Get Users por id 
-	@GetMapping("/Users/{id}")
+	@GetMapping("/Users/{id_user}")
 	public User UserXID(@PathVariable(name="id_user") Long id_user) {
 		
 		User User_xid= new User();
@@ -55,7 +55,7 @@ public class UserController {
 	}
 	
 	//Añadir User por id 
-	@PutMapping("/Users/{id}")
+	@PutMapping("/Users/{id_user}")
 	public User actualizarUser(@PathVariable(name="id_user")Long id_user,@RequestBody User User) {
 		
 		User User_seleccionado= new User();
@@ -75,7 +75,7 @@ public class UserController {
 		return User_actualizado;
 	}
 	
-	@DeleteMapping("/Users/{id}")
+	@DeleteMapping("/Users/{id_user}")
 	public void eleiminarUser(@PathVariable(name="id_user")Long id_user) {
 		UserServideImpl.eliminarUser(id_user);
 	}

@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS `messages`;
 DROP TABLE IF EXISTS `games`;
-DROP TABLE IF EXISTS `parties`;
-DROP TABLE IF EXISTS `users`;
 
+DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `parties`;
 
 
 CREATE TABLE `users` (
@@ -20,7 +20,7 @@ CREATE TABLE `parties` (
   `party_title` varchar(50) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_party`),
-  CONSTRAINT `user_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id_user`) ON UPDATE CASCADE ON DELETE CASCADE
+  CONSTRAINT `user_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id_user`) 
 );
 CREATE TABLE `games` (
   `id_game` int(11) NOT NULL AUTO_INCREMENT,
@@ -28,7 +28,7 @@ CREATE TABLE `games` (
   `description` varchar(50) DEFAULT NULL, 
   `party_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_game`),
-  CONSTRAINT `party_FK` FOREIGN KEY (`party_id`) REFERENCES `parties` (`id_party`) ON UPDATE CASCADE ON DELETE CASCADE
+  CONSTRAINT `party_FK` FOREIGN KEY (`party_id`) REFERENCES `parties` (`id_party`) 
 );
 
 CREATE TABLE `messages` (
@@ -38,8 +38,8 @@ CREATE TABLE `messages` (
   `user_id` int(11) DEFAULT NULL,
   `party_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_message`),
-  CONSTRAINT `user_message_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id_user`) ON UPDATE CASCADE ON DELETE CASCADE,
- CONSTRAINT `party_message_FK` FOREIGN KEY (`party_id`) REFERENCES `parties` (`id_party`) ON UPDATE CASCADE ON DELETE CASCADE
+  CONSTRAINT `user_message_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id_user`),
+ CONSTRAINT `party_message_FK` FOREIGN KEY (`party_id`) REFERENCES `parties` (`id_party`) 
  );
 
 

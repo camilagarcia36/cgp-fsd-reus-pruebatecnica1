@@ -33,7 +33,10 @@ public class Party {
 	@JoinColumn(name = "id_party")
 	private List<Message> message;
 	
-
+	@OneToMany
+	@JoinColumn(name = "id_party")
+	private List<User> user;
+	
 	// Constructores
 
 	public Party() {
